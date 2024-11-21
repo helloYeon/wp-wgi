@@ -1,6 +1,30 @@
+
 # BEGIN WordPress
-# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
-# dynamically generated, and should only be modified via WordPress filters.
-# Any changes to the directives between these markers will be overwritten.
+# "BEGIN WordPress" から "END WordPress" までのディレクティブ (行) は
+# 動的に生成され、WordPress フィルターによってのみ修正が可能です。
+# これらのマーカー間にあるディレクティブへのいかなる変更も上書きされてしまいます。
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
 
 # END WordPress
+SetEnvIf Request_URI ".*" DenyForeignWpComment
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 weeks"
+  ExpiresByType application/javascript "access plus 1 weeks"
+  ExpiresByType text/javascript "access plus 1 weeks"
+  ExpiresByType image/gif "access plus 1 weeks"
+  ExpiresByType image/jpeg "access plus 1 weeks"
+  ExpiresByType image/png "access plus 1 weeks"
+  ExpiresByType image/svg "access plus 1 weeks"
+  ExpiresByType image/x-icon "access plus 1 weeks"
+</IfModule>
+ErrorDocument 401 /error/401.html

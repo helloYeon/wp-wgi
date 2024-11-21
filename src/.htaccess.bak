@@ -1,0 +1,20 @@
+
+# BEGIN WordPress
+# "BEGIN WordPress" から "END WordPress" までのディレクティブ (行) は
+# 動的に生成され、WordPress フィルターによってのみ修正が可能です。
+# これらのマーカー間にあるディレクティブへのいかなる変更も上書きされてしまいます。
+
+# END WordPress
+SetEnvIf Request_URI ".*" DenyForeignWpComment
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 weeks"
+  ExpiresByType application/javascript "access plus 1 weeks"
+  ExpiresByType text/javascript "access plus 1 weeks"
+  ExpiresByType image/gif "access plus 1 weeks"
+  ExpiresByType image/jpeg "access plus 1 weeks"
+  ExpiresByType image/png "access plus 1 weeks"
+  ExpiresByType image/svg "access plus 1 weeks"
+  ExpiresByType image/x-icon "access plus 1 weeks"
+</IfModule>

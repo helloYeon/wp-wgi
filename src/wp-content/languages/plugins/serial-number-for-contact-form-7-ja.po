@@ -1,0 +1,245 @@
+# Translation of Plugins - Serial Number for Contact Form 7 - Stable (latest release) in Japanese
+# This file is distributed under the same license as the Plugins - Serial Number for Contact Form 7 - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-06-20 04:19:45+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/4.0.0-alpha.4\n"
+"Language: ja_JP\n"
+"Project-Id-Version: Plugins - Serial Number for Contact Form 7 - Stable (latest release)\n"
+
+#: includes/form-validate.php:103 includes/form-validate.php:237
+msgid "HTML tags are not allowed."
+msgstr "HTML タグは使用できません。"
+
+#: includes/form-validate.php:90 includes/form-validate.php:224
+msgid "Control characters are not allowed."
+msgstr "制御文字は使用できません。"
+
+#: includes/form-validate.php:77 includes/form-validate.php:211
+msgid "Contains invalid characters."
+msgstr "無効な文字が含まれています。"
+
+#: admin/functions/menu/form-setting.php:284
+msgid "* Appended to the end of messages displayed by the Contact Form 7."
+msgstr "※ Contact Form 7 で表示されるメッセージの末尾に追加されます。"
+
+#: admin/functions/menu/form-setting.php:274
+msgid "Message was sent successfully :"
+msgstr "メッセージが正常に送信された :"
+
+#: admin/functions/menu/form-setting.php:267
+msgid "Don't add the serial number display to the send result message."
+msgstr "送信結果メッセージにシリアル番号の表示を追加しない。"
+
+#: admin/functions/menu/form-setting.php:262
+msgid "Edit Send Result Messages"
+msgstr "送信結果メッセージの編集"
+
+#: admin/functions/menu/form-setting.php:168
+msgid "Non-whitespace characters"
+msgstr "空白以外の文字"
+
+#: admin/functions/menu/form-setting.php:137
+#: admin/functions/menu/form-setting.php:231
+#: admin/functions/menu/form-setting.php:288
+#: admin/functions/menu/form-setting.php:307
+msgid "Display Example"
+msgstr "表示例"
+
+#: admin/functions/menu/form-setting.php:256
+msgid "Don't increment count when mail send fails."
+msgstr "メール送信が失敗した場合にカウントを増加させない。"
+
+#: admin/functions/menu/form-setting.php:251
+msgid "Disable Mail Count Increase"
+msgstr "メールカウント増加を無効化"
+
+#: admin/functions/menu/form-setting.php:241
+msgid "UNIX Time Display Format"
+msgstr "UNIX 時間の表示形式"
+
+#: admin/functions/menu/form-setting.php:239
+msgid "Advanced Settings"
+msgstr "高度な設定"
+
+#: admin/functions/menu/form-setting.php:205
+msgid "UNIX time & Unique ID"
+msgstr "UNIX 時間 & ユニーク ID"
+
+#: admin/functions/menu/form-setting.php:204
+msgid "Don't display mail count."
+msgstr "メールカウントを表示しない。"
+
+#: admin/functions/menu/form-setting.php:172
+msgid "Counter digits"
+msgstr "カウンター桁数"
+
+#: admin/functions/menu/form-setting.php:157
+msgid "Display Options"
+msgstr "表示オプション"
+
+#: admin/functions/menu/form-setting.php:147
+msgid "Number Type"
+msgstr "番号タイプ"
+
+#: admin/functions/menu/form-setting.php:145
+msgid "Display Settings"
+msgstr "表示設定"
+
+#: admin/functions/menu/form-setting.php:104
+msgid "Mail Counter"
+msgstr "メールカウンター"
+
+#: admin/functions/menu/form-setting.php:78
+msgid "microseconds (μs)"
+msgstr "マイクロ秒 (μs)"
+
+#: admin/functions/menu/form-setting.php:77
+msgid "milliseconds (ms)"
+msgstr "ミリ秒 (ms)"
+
+#: admin/functions/menu/form-setting.php:76
+msgid "seconds (s)"
+msgstr "秒 (s)"
+
+#: admin/functions/menu/form-setting.php:45
+msgid "Timestamp ( UNIX time )"
+msgstr "タイムスタンプ ( UNIX 時間 )"
+
+#: library/wplib-admin-menu/wplib-admin-menu.php:1115
+msgid "Settings save failed."
+msgstr "設定を保存できませんでした。"
+
+#: library/wplib-admin-menu/wplib-admin-menu.php:1101
+msgid "Settings saved."
+msgstr "設定を保存しました。"
+
+#: includes/define.php:198
+msgid "Receipt No :"
+msgstr "受付番号 :"
+
+#: admin/includes/plugin.php:282
+msgid "This plugin requires %s to work. Please install and activate the plugin first."
+msgstr "このプラグインの動作には %s が必要です。まずプラグインをインストールし有効化してください。"
+
+#: admin/includes/plugin.php:148
+msgid "Serial Number for Contact Form 7 requires %s to work. Please install and activate the plugin first."
+msgstr "Serial Number for Contact Form 7 の動作には %s が必要です。まずプラグインをインストールし有効化してください。"
+
+#: admin/functions/menu/form-setting.php:220
+msgid "* This feature does not work with your PHP version. ( PHP >= 5.2.0 )"
+msgstr "※ お使いの PHP バージョンではこの機能は動作しません。 ( PHP >= 5.2.0 )"
+
+#: admin/functions/menu/form-setting.php:128
+msgid "* Reset on date change"
+msgstr "※日付変更時リセット"
+
+#: admin/functions/menu/form-setting.php:119
+msgid "Daily Count"
+msgstr "デイリーカウント"
+
+#: admin/functions/menu/form-setting.php:214
+msgid "Use the daily reset mail counter."
+msgstr "毎日リセットするメールカウンターを使用する。"
+
+#: admin/functions/menu/admin-menu.php:37
+#: admin/functions/menu/admin-menu.php:56
+msgid "Serial Number Settings"
+msgstr "シリアル番号設定"
+
+#: includes/form-validate.php:34 includes/form-validate.php:76
+#: includes/form-validate.php:89 includes/form-validate.php:102
+#: includes/form-validate.php:129 includes/form-validate.php:156
+#: includes/form-validate.php:183 includes/form-validate.php:210
+#: includes/form-validate.php:223 includes/form-validate.php:236
+msgid "Input value is invalid."
+msgstr "無効な入力値です。"
+
+#: admin/functions/menu/form-setting.php:115
+#: admin/functions/menu/form-setting.php:127 includes/form-validate.php:157
+#: includes/form-validate.php:184
+msgid "Up to 5 digits integer : 0~99999"
+msgstr "5桁以内の整数 : 0~99999"
+
+#: admin/functions/menu/form-setting.php:133
+msgid "Change"
+msgstr "変更"
+
+#: admin/functions/menu/form-setting.php:107
+msgid "Current Count"
+msgstr "現在のカウント"
+
+#: admin/functions/menu/form-setting.php:195
+msgid "Omit the number of years to 2 digits."
+msgstr "西暦の年数を2桁に省略する。"
+
+#: admin/functions/menu/form-setting.php:186
+msgid "Display the delimiter \"-\"."
+msgstr "区切り文字「-」を表示する。"
+
+#: admin/functions/menu/form-setting.php:180 includes/form-validate.php:130
+msgid "1 digit integer : 1~9"
+msgstr "1桁の整数 : 1~9"
+
+#: admin/functions/menu/form-setting.php:160
+msgid "Prefix"
+msgstr "接頭語"
+
+#: admin/functions/menu/form-setting.php:48
+msgid "Unique ID"
+msgstr "ユニーク ID"
+
+#: admin/functions/menu/form-setting.php:47
+msgid "Timestamp ( Date + Time )"
+msgstr "タイムスタンプ ( 年月日 + 時分秒 )"
+
+#: admin/functions/menu/form-setting.php:46
+msgid "Timestamp ( Date )"
+msgstr "タイムスタンプ ( 年月日 )"
+
+#: admin/functions/menu/form-setting.php:44
+msgid "Serial Number"
+msgstr "通し番号"
+
+#: admin/functions/menu/form-setting.php:92
+msgid "Mail-Tag"
+msgstr "メールタグ"
+
+#: admin/includes/plugin.php:107
+msgid "Serial Number for Contact Form 7 %1$s requires WordPress %2$s or higher. Please <a href=\"%3$s\">update WordPress</a> first."
+msgstr "Serial Number for Contact Form 7 %1$s は WordPress %2$s 以降に対応しています。まず <a href=\"%3$s\">WordPress を更新</a>してください。"
+
+#: admin/functions/menu/form-setting.php:227
+#: admin/functions/menu/form-setting.php:303 admin/includes/plugin.php:239
+msgid "Settings"
+msgstr "設定"
+
+#: admin/functions/menu/admin-menu.php:67
+msgid "Copy and paste the mail-tag anywhere in the mail template."
+msgstr "メールタグをコピーして、メールテンプレートの任意の場所に張り付けてください。"
+
+#. Author URI of the plugin
+msgid "https://profiles.wordpress.org/nobuntu87/"
+msgstr "https://profiles.wordpress.org/nobuntu87/"
+
+#. Author of the plugin
+msgid "Nobuntu"
+msgstr "Nobuntu"
+
+#. Description of the plugin
+msgid "Add-on for Contact Form 7 plugin. Add your own mail-tag to display the serial number."
+msgstr "Contact Form 7 プラグインのアドオンです。独自のメールタグを追加してシリアル番号を表示します。"
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/serial-number-for-contact-form-7"
+msgstr "https://wordpress.org/plugins/serial-number-for-contact-form-7"
+
+#. Plugin Name of the plugin
+#: admin/functions/menu/admin-menu.php:36
+#: admin/functions/menu/admin-menu.php:39
+msgid "Serial Number for Contact Form 7"
+msgstr "Serial Number for Contact Form 7"
