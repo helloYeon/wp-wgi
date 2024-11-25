@@ -328,52 +328,6 @@ require_once locate_template('inc/parts/display_category.php');
         <!--/home_top_widget-->
   	  <?php endif; ?>
 
-      <section class="row mt30">
-        <section class="news_list2 col_2">
-		      <div class="title">NEWS</div>
-		      <?php
-		        $list_news = hy_GetContents( 'news', 4, 1 );
-		        foreach ( $list_news as $row ) :
-			    ?>
-			    <dl class="">
-				      <dt><?php echo $row['post_date_f']; ?></dt>
-				      <dd>
-					      <a href="<?php echo $row['post_url']; ?>" class=""><?php echo $row['post_title']; ?></a>
-				      </dd>
-			    </dl>
-			    <?php
-		        endforeach;
-		      ?>
-		      <div class="mt10 mr10">
-			      <a href="/category/we-got-it/"  class="btn txt_font_en" >VIEW MORE</a>
-		      </div>
-	      </section>
-        <section class="news_list3 col_2">
-		      <div class="title">WE GOT IT</div>
-		      <?php
-		        $list_news = hy_GetContents( 'we-got-it', 3, 1 );
-		        foreach ( $list_news as $row ) :
-			    ?>
-			    <dl class="">
-				    <dt><img src ="<?php echo $row['post_thumb_url']; ?>"></dt>
-				    <dd class="info">
-					    <div class="title"><a href="<?php echo $row['post_url']; ?>" class=""><?php echo $row['post_title']; ?></a></div>
-					    <div class="desc">
-						    <a href="<?php echo $row['post_url']; ?>" class=""><?php echo $row['post_content_s']; ?></a>
-				      </div>
-				    </dd>
-			    </dl>
-			    <?php
-		        endforeach;
-		      ?>
-		      <a href="/category/news/"  class="btn txt_font_en mt10 mr05" >VIEW MORE</a>
-	      </section>
-      </section>
-
-
-
-
-
 
       <div class="dividerBottom">
         <?php if (get_option('page_on_front')) : //フロント固定 ?>
@@ -551,13 +505,126 @@ require_once locate_template('inc/parts/display_category.php');
 
 
 
+
   <!--l-footerTop-->
   <div class="l-footerTop">
     <?php if (!is_paged() && get_query_var('sort') == '') : ?>
+      <?php if(get_option('fit_homeRank_switch') == 'on' && get_option('fit_homeRank_title')):?>
+        <div class="wider dividerBottom">
+
+			<!--rankingBox-->
+			<div class="rankingBox">
+				<div class="rankingBox__bg"></div>
+
+				<div class="container">
+					<h2 class="heading heading-main u-white <?php echo ( get_option( 'fit_homeRank_bold' ) ) ? 'u-bold' : ''; ?>">
+						<?php if ( get_option( 'fit_homeRank_icon' ) ) : ?>
+							<i class="<?php echo get_option( 'fit_homeRank_icon' ); ?>"></i>
+						<?php endif; ?>
+						<?php echo get_option( 'fit_homeRank_title' ); ?>
+						<?php if ( get_option( 'fit_homeRank_sub' ) ) : ?>
+							<span><?php echo get_option( 'fit_homeRank_sub' ); ?></span>
+						<?php endif; ?>
+					</h2>
+
+					<div class="rankingBox__inner">
+						<div class="rank-offline" style="display: none;">
+							<p>オフラインのためランキングが表示できません</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<?php add_action( 'wp_footer', 'fit_add_ranking_box_script' ); // フッターにランキング取得用のスクリプト追加 ?>
+			<!--rankingBox-->
+
+        </div>
+      <?php endif; ?>
+
+
+
       <?php if(get_option('fit_homeCategory_switch') == 'on' && get_option('fit_homeCategory_title')):?>
         <div class="wider">
           <!--categoryBox-->
+          <div class="categoryBox">
+            <div class="container">
+              <!------------------------------
+                 ⭐️ 記事 - 見出し
+              ------------------------------>
+              <!-- <h2 class="heading heading-main <?php if(get_option('fit_homeCategory_bold') ): ?>u-bold<?php endif; ?>">
+                <?php if(get_option('fit_homeCategory_icon') ): ?><i class="<?php echo get_option('fit_homeCategory_icon') ?>"></i><?php endif; ?>
+                <?php echo get_option('fit_homeCategory_title') ?>
+                <?php if(get_option('fit_homeCategory_sub') ): ?><span><?php echo get_option('fit_homeCategory_sub') ?></span><?php endif; ?>
+              </h2> -->
 
+              <ul class="categoryBox__list">
+                <?php
+                $conditions = '';
+          		  $id_list = '';
+          		  if (get_option('fit_homeCategory_conditions')){
+          			  $conditions = get_option('fit_homeCategory_conditions');
+          		  }
+          		  if (get_option('fit_homeCategory_id')){
+          			  $id_list = get_option('fit_homeCategory_id');
+          		  }
+          		  $args = array(
+          			  'orderby' => 'count',
+          			  'order' => 'DESC',
+          			  $conditions  => $id_list,
+          		  );
+          		  $get_cat = get_categories($args);
+          		  foreach($get_cat as $val) {
+          			  $category_list_id[$val->name]= $val->cat_ID;
+          		  }
+                ?>
+                <!------------------------------
+                 ⭐️ 記事
+                 ------------------------------>
+                <?php if( !empty( $category_list_id ) ): ?>
+                  <?php foreach($category_list_id as $key => $val): ?>
+                    <li class="categoryBox__item">
+                      <h3 class="categoryBox__title cc-ft<?php echo $val ?>"><a class="categoryBox__titleLink" href="<?php echo esc_url(get_category_link($val)); ?>"><?php echo $key; ?></a></h3>
+                      <?php
+              			  $cat_post = get_posts('category='.$val.'&numberposts=1');
+              			  foreach($cat_post as $post):
+                        if ( get_option('fit_homeCategory_aspect') != 'none' ): ?>
+                          <div class="eyecatch<?php if(get_option('fit_homeCategory_aspect') && get_option('fit_homeCategory_aspect') != 'off'): ?> <?php echo get_option('fit_homeCategory_aspect');?><?php endif; ?>">
+                            <a class="eyecatch__link<?php if (get_option('fit_bsEyecatch_hover') && get_option('fit_bsEyecatch_hover') != 'off' ) : ?> eyecatch__link-<?php echo get_option('fit_bsEyecatch_hover');	?><?php endif; ?>" href="<?php the_permalink(); ?>">
+                              <?php if ( has_post_thumbnail()): ?>
+                                <?php the_post_thumbnail('icatch375'); ?>
+                              <?php elseif ( get_fit_noimg()): ?>
+                                <img <?php echo fit_correct_src(); ?>="<?php echo get_fit_noimg(); ?>" alt="NO IMAGE" <?php echo fit_dummy_src(); ?>>
+                              <?php else: ?>
+                                <img <?php echo fit_correct_src(); ?>="<?php echo get_template_directory_uri(); ?>/img/img_no_375.gif" alt="NO IMAGE" <?php echo fit_dummy_src(); ?>>
+                              <?php endif; ?>
+                            </a>
+                          </div>
+                        <?php endif; ?>
+
+                        <div class="categoryBox__contents">
+                          <?php if( !empty( get_option('fit_homeCategory_time') ) || !empty(get_option('fit_homeCategory_update'))): ?>
+                            <ul class="dateList">
+                              <?php if( !empty(get_option('fit_homeCategory_time') )): ?>
+                                <li class="dateList__item icon-clock"><?php the_time(get_option('date_format')); ?></li>
+                              <?php endif; ?>
+                              <?php if ( !empty(get_option('fit_homeCategory_update')) && get_the_time( 'U' ) !== get_the_modified_time( 'U' ) || !empty(get_option('fit_homeCategory_update')) && empty(get_option('fit_homeCategory_time'))) : ?>
+                                <li class="dateList__item icon-update"><?php the_modified_date(get_option('date_format')) ?></li>
+                              <?php endif; ?>
+                            </ul>
+                          <?php endif; ?>
+
+                          <h2 class="heading heading-archive ">
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                          </h2>
+                        </div>
+
+                      <?php endforeach; ?>
+                    </li>
+                  <?php endforeach;?>
+                <?php endif; ?>
+
+              </ul>
+            </div>
+          </div>
           <!--categoryBox-->
         </div>
       <?php endif; ?>

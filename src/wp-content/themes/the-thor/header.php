@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html <?php language_attributes(); ?> prefix="og: http://ogp.me/ns#" class="t-html 
+<html <?php language_attributes(); ?> prefix="og: http://ogp.me/ns#" class="t-html
 <?php if (get_option('fit_bsStyle_fontSize') && get_option('fit_bsStyle_fontSize') != 'off' ) : ?><?php echo get_option('fit_bsStyle_fontSize');?> <?php endif; ?>
 <?php if (get_option('fit_bsStyle_fontSizePc') && get_option('fit_bsStyle_fontSizePc') != 'off' ) : ?><?php echo get_option('fit_bsStyle_fontSizePc');?><?php endif; ?>">
 
@@ -10,7 +10,7 @@
 <?php wp_head(); ?>
 <?php fit_seo_meta();?>
 <?php fit_ogp_date();?>
-
+<link rel="stylesheet" href="/wp-content/themes/the-thor/style-custom.css">
 <?php if (get_option('fit_bsAdvanced_header')): ?>
 <?php echo get_option('fit_bsAdvanced_header'); ?>
 <?php endif; ?>

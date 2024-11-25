@@ -33,3 +33,42 @@ require_once locate_template('inc/parts.php');                // その他パー
 require_once locate_template('inc/taxonomy_order.php');       // カテゴリー・タグの並び順変更用ファイル
 require_once locate_template('inc/rank.php');                 // ランキング用ファイル
 require_once locate_template('inc/rest-api.php');             // REST-API用ファイル
+
+function hy_GetContents($category, $cnt, $p_num, $d_format = 'Y.m.d')
+{
+	$op = array(
+		'category_name'  => $category,
+		'posts_per_page' => $cnt,
+		'paged'          => $p_num,
+		'orderby'        => 'post_date',
+		'order'          => 'DESC',
+	);
+
+	$the_query = new WP_Query($op);
+	if (!$the_query->have_posts()) {
+		return array();
+	}
+
+	$rt = array();
+	while ($the_query->have_posts()) {
+		$the_query->the_post();
+		global $post;
+
+		$imgurl        = get_the_post_thumbnail_url($post->ID, 'medium');
+		$thumbnail_url = empty($imgurl) ? get_template_directory_uri() . '/images/230405-2_WEGOTIT_LOGO_5.png?aaa1' : $imgurl;
+		array_push(
+			$rt,
+			array(
+				'post_title'     => $post->post_title,
+				'post_content'   => wp_strip_all_tags($post->post_content),
+				'post_content_s' => mb_substr(wp_strip_all_tags($post->post_content), 0, 300),
+				'post_url'       => get_permalink($post->ID),
+				'post_date'      => $post->post_date,
+				'post_date_f'    => date($d_format, strtotime($post->post_date)),
+				'post_thumb_url' => $thumbnail_url,
+			)
+		);
+	}
+
+	return $rt;
+}
